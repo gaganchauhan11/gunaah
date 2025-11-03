@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shayari - Poetry of the Heart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #800020;
+            --dark-burgundy: #5c0016;
+            --gold: #d4af37;
+            --cream: #fff8dc;
+            --light-cream: #fffef9;
+            --warm-brown: #8b6f47;
+            --soft-pink: #ffd7d7;
+            --shadow: rgba(128, 0, 32, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream) 50%, #ffefd5 100%);
+            color: var(--dark-burgundy);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a, .nav-links button {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lora', serif;
+        }
+
+        .nav-links a:hover, .nav-links button:hover {
+            color: var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .user-info {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Views */
+        .view {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Page */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 220, 0.9));
+            border-radius: 20px;
+            box-shadow: 0 8px 24px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--warm-brown);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-family: 'Lora', serif;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+            color: var(--cream);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--gold);
+            color: var(--dark-burgundy);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Shayari Card */
+        .shayari-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 220, 0.95));
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 2rem auto;
+            box-shadow: 0 12px 32px var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shayari-card::before {
+            content: '\201C';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .shayari-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--dark-burgundy);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shayari-theme {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--warm-brown);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .shayari-actions {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: white;
+            border: 2px solid var(--burgundy);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Lora', serif;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        .action-btn:hover {
+            background: var(--burgundy);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .action-btn.active {
+            background: var(--burgundy);
+            color: white;
+        }
+
+        .action-btn .icon {
+            font-size: 1.2rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .nav-btn {
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--dark-burgundy);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--burgundy);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .shayari-counter {
+            text-align: center;
+            color: var(--warm-brown);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Forms */
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        .form-container h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--burgundy);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-burgundy);
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--burgundy);
+            box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
+        }
+
+        .form-error {
+            color: #c41e3a;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .form-success {
+            color: #2d7f3f;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--warm-brown);
+        }
+
+        .form-footer a {
+            color: var(--burgundy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Profile */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-header h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--burgundy);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--burgundy);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--warm-brown);
+        }
+
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+
+        .profile-section h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--burgundy);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .shayari-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .shayari-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .shayari-item-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--dark-burgundy);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .shayari-item-theme {
+            font-size: 0.85rem;
+            color: var(--warm-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--warm-brown);
+            font-style: italic;
+        }
+
+        /* Admin Panel */
+        .admin-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .admin-header h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--burgundy);
+            font-size: 2.5rem;
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-card-title {
+            font-size: 0.9rem;
+            color: var(--warm-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--burgundy);
+        }
+
+        .admin-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .admin-section h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--burgundy);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-list {
+            list-style: none;
+        }
+
+        .admin-list li {
+            padding: 1rem;
+            border-bottom: 1px solid var(--cream);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-list li:last-child {
+            border-bottom: none;
+        }
+
+        .user-device {
+            font-size: 0.9rem;
+            color: var(--warm-brown);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .shayari-card {
+                padding: 2rem;
+            }
+
+            .shayari-text {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-links a, .nav-links button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">✨ Shayari ✨</div>
+            <div class="nav-links">
+                <a href="#" onclick="showView('home'); return false;">Home</a>
+                <a href="#" onclick="showView('browse'); return false;">Browse</a>
+                <span class="user-info" id="navUserInfo"></span>
+                <button id="navAuthBtn" onclick="handleAuthNav(); return false;">Sign In</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Home View -->
+        <div id="homeView" class="view active">
+            <div class="hero">
+                <h1>Welcome to Shayari</h1>
+                <p>"Dil ki baatein, lafzon mein... Where every word speaks to the soul"</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showView('browse')">Explore Shayari</button>
+                    <button class="btn btn-secondary" onclick="showView('signup')">Join Us</button>
+                </div>
+            </div>
+
+            <div class="shayari-card">
+                <div class="shayari-theme">Featured Poetry</div>
+                <div class="shayari-text">
+                    "मैं, तुम और चाँदनी एक रात बैठे ,<bd>
+चाँदनी पूरे आसमान में, मैं तुम साथ बैठे, <bd>
+मैं बैठा सहमा सा, तुम लिए आस बैठे, </bd>
+तुम बैठी दूर थोड़ा , मैं सोचूं नज़दीक काश बैठे ।   
+"
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="showView('browse')">Read More Poetry</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Browse View -->
+        <div id="browseView" class="view">
+            <div class="shayari-card">
+                <div class="shayari-theme" id="currentTheme">Love</div>
+                <div class="shayari-text" id="currentShayari"></div>
+                <div class="shayari-actions">
+                    <button class="action-btn" id="likeBtn" onclick="toggleLike()">
+                        <span class="icon">❤️</span>
+                        <span id="likeCount">0</span> Likes
+                    </button>
+                    <button class="action-btn" id="favoriteBtn" onclick="toggleFavorite()">
+                        <span class="icon">⭐</span>
+                        <span id="favoriteCount">0</span> Favorites
+                    </button>
+                </div>
+            </div>
+            <div class="navigation-buttons">
+                <button class="nav-btn" id="prevBtn" onclick="previousShayari()">← Previous</button>
+                <button class="nav-btn" id="nextBtn" onclick="nextShayari()">Next →</button>
+            </div>
+            <div class="shayari-counter" id="shayariCounter"></div>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signupView" class="view">
+            <div class="form-container">
+                <h2>Join Shayari</h2>
+                <form id="signupForm" onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signupName">Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                    <div id="signupMessage"></div>
+                </form>
+                <div class="form-footer">
+                    Already have an account? <a href="#" onclick="showView('signin'); return false;">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In View -->
+        <div id="signinView" class="view">
+            <div class="form-container">
+                <h2>Welcome Back</h2>
+                <form id="signinForm" onsubmit="handleSignin(event)">
+                    <div class="form-group">
+                        <label for="signinEmail">Email</label>
+                        <input type="email" id="signinEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signinPassword">Password</label>
+                        <input type="password" id="signinPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                    <div id="signinMessage"></div>
+                </form>
+                <div class="form-footer">
+                    Don't have an account? <a href="#" onclick="showView('signup'); return false;">Sign Up</a><br>
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile View -->
+        <div id="profileView" class="view">
+            <div class="profile-header">
+                <h2 id="profileName"></h2>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <div class="stat-number" id="profileLikesCount">0</div>
+                        <div class="stat-label">Likes Given</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="profileFavoritesCount">0</div>
+                        <div class="stat-label">Favorites</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h3>❤️ Liked Shayari</h3>
+                <div class="shayari-list" id="likedShayariList"></div>
+            </div>
+
+            <div class="profile-section">
+                <h3>⭐ Favorite Shayari</h3>
+                <div class="shayari-list" id="favoriteShayariList"></div>
+            </div>
+        </div>
+
+        <!-- Admin Panel View -->
+        <div id="adminView" class="view">
+            <div class="admin-header">
+                <h2>Admin Dashboard</h2>
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Users</div>
+                    <div class="stat-card-value" id="adminTotalUsers">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Likes</div>
+                    <div class="stat-card-value" id="adminTotalLikes">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Favorites</div>
+                    <div class="stat-card-value" id="adminTotalFavorites">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Shayari</div>
+                    <div class="stat-card-value" id="adminTotalShayari">30</div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>Most Liked Shayari</h3>
+                <ul class="admin-list" id="adminMostLiked"></ul>
+            </div>
+
+            <div class="admin-section">
+                <h3>User Activity</h3>
+                <ul class="admin-list" id="adminUserActivity"></ul>
+            </div>
+        </div>
+    </div>
+    <div id="shayariText"></div>
+    <script>
+        // Data Storage
+
+        let users = [
+            { email: 'demo@shayari.com', password: 'demo123', name: 'Poetry Lover', likedShayari: [], favoritedShayari: [], device: 'Desktop', location: 'Mumbai, India' }
+        ];
+
+        let currentUser = null;
+        let currentShayariIndex = 0;
+
+        // Initialize
+        function init() {
+            updateNavigation();
+            displayShayari();
+        }
+
+        // View Management
+        function showView(viewName) {
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+            
+            if (viewName === 'home') {
+                document.getElementById('homeView').classList.add('active');
+            } else if (viewName === 'browse') {
+                document.getElementById('browseView').classList.add('active');
+                displayShayari();
+            } else if (viewName === 'signup') {
+                document.getElementById('signupView').classList.add('active');
+            } else if (viewName === 'signin') {
+                document.getElementById('signinView').classList.add('active');
+            } else if (viewName === 'profile') {
+                if (!currentUser) {
+                    alert('Please sign in to view your profile');
+                    showView('signin');
+                    return;
+                }
+                document.getElementById('profileView').classList.add('active');
+                displayProfile();
+            } else if (viewName === 'admin') {
+                document.getElementById('adminView').classList.add('active');
+                displayAdminPanel();
+            }
+        }
+
+        // Shayari Display
+        function displayShayari() {
+            const shayari = shayariCollection[currentShayariIndex];
+            document.getElementById('currentShayari').textContent = shayari.text;
+            document.getElementById('currentTheme').textContent = shayari.theme;
+            document.getElementById('likeCount').textContent = shayari.likes;
+            document.getElementById('favoriteCount').textContent = shayari.favorites;
+            document.getElementById('shayariCounter').textContent = `${currentShayariIndex + 1} of ${shayariCollection.length}`;
+
+            // Update button states
+            const likeBtn = document.getElementById('likeBtn');
+            const favoriteBtn = document.getElementById('favoriteBtn');
+
+            if (currentUser) {
+                if (currentUser.likedShayari.includes(shayari.id)) {
+                    likeBtn.classList.add('active');
+                } else {
+                    likeBtn.classList.remove('active');
+                }
+
+                if (currentUser.favoritedShayari.includes(shayari.id)) {
+                    favoriteBtn.classList.add('active');
+                } else {
+                    favoriteBtn.classList.remove('active');
+                }
+            } else {
+                likeBtn.classList.remove('active');
+                favoriteBtn.classList.remove('active');
+            }
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentShayariIndex === 0;
+            document.getElementById('nextBtn').disabled = currentShayariIndex === shayariCollection.length - 1;
+        }
+
+        function nextShayari() {
+            if (currentShayariIndex < shayariCollection.length - 1) {
+                currentShayariIndex++;
+                displayShayari();
+            }
+        }
+
+        function previousShayari() {
+            if (currentShayariIndex > 0) {
+                currentShayariIndex--;
+                displayShayari();
+            }
+        }
+
+        function toggleLike() {
+            if (!currentUser) {
+                alert('Please sign in to like shayari');
+                showView('signin');
+                return;
+            }
+
+            const shayari = shayariCollection[currentShayariIndex];
+            const index = currentUser.likedShayari.indexOf(shayari.id);
+
+            if (index > -1) {
+                currentUser.likedShayari.splice(index, 1);
+                shayari.likes--;
+            } else {
+                currentUser.likedShayari.push(shayari.id);
+                shayari.likes++;
+            }
+
+            displayShayari();
+        }
+
+        function toggleFavorite() {
+            if (!currentUser) {
+                alert('Please sign in to favorite shayari');
+                showView('signin');
+                return;
+            }
+
+            const shayari = shayariCollection[currentShayariIndex];
+            const index = currentUser.favoritedShayari.indexOf(shayari.id);
+
+            if (index > -1) {
+                currentUser.favoritedShayari.splice(index, 1);
+                shayari.favorites--;
+            } else {
+                currentUser.favoritedShayari.push(shayari.id);
+                shayari.favorites++;
+            }
+
+            displayShayari();
+        }
+
+        // Authentication
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const messageEl = document.getElementById('signupMessage');
+
+            // Check if user already exists
+            if (users.find(u => u.email === email)) {
+                messageEl.innerHTML = '<div class="form-error">Email already registered. Please sign in.</div>';
+                return;
+            }
+
+            // Create new user
+            const devices = ['Desktop', 'Mobile', 'Tablet'];
+            const locations = ['Mumbai, India', 'Delhi, India', 'Bangalore, India', 'Kolkata, India', 'Chennai, India', 'Hyderabad, India'];
+            
+            const newUser = {
+                email,
+                password,
+                name,
+                likedShayari: [],
+                favoritedShayari: [],
+                device: devices[Math.floor(Math.random() * devices.length)],
+                location: locations[Math.floor(Math.random() * locations.length)]
+            };
+
+            users.push(newUser);
+            currentUser = newUser;
+
+            messageEl.innerHTML = '<div class="form-success">Account created successfully!</div>';
+            setTimeout(() => {
+                updateNavigation();
+                showView('browse');
+            }, 1000);
+        }
+
+        function handleSignin(event) {
+            event.preventDefault();
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+            const messageEl = document.getElementById('signinMessage');
+
+            // Check for admin
+            if (email === 'admin@shayari.com' && password === 'KCR X GAGAN1') {
+                currentUser = { email, name: 'Admin', isAdmin: true };
+                messageEl.innerHTML = '<div class="form-success">Welcome Admin!</div>';
+                setTimeout(() => {
+                    updateNavigation();
+                    showView('admin');
+                }, 1000);
+                return;
+            }
+
+            // Check regular user
+            const user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+                currentUser = user;
+                messageEl.innerHTML = '<div class="form-success">Welcome back!</div>';
+                setTimeout(() => {
+                    updateNavigation();
+                    showView('browse');
+                }, 1000);
+            } else {
+                messageEl.innerHTML = '<div class="form-error">Invalid email or password.</div>';
+            }
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            updateNavigation();
+            showView('home');
+        }
+
+        function handleAuthNav() {
+            if (currentUser) {
+                handleLogout();
+            } else {
+                showView('signin');
+            }
+        }
+
+        function updateNavigation() {
+            const userInfo = document.getElementById('navUserInfo');
+            const authBtn = document.getElementById('navAuthBtn');
+
+            if (currentUser) {
+                userInfo.innerHTML = `<a href="#" onclick="showView('profile'); return false;" style="color: var(--gold); text-decoration: none;">${currentUser.name}</a>`;
+                authBtn.textContent = 'Logout';
+            } else {
+                userInfo.innerHTML = '';
+                authBtn.textContent = 'Sign In';
+            }
+        }
+
+        // Profile Display
+        function displayProfile() {
+            document.getElementById('profileName').textContent = currentUser.name;
+            document.getElementById('profileLikesCount').textContent = currentUser.likedShayari.length;
+            document.getElementById('profileFavoritesCount').textContent = currentUser.favoritedShayari.length;
+
+            // Display liked shayari
+            const likedList = document.getElementById('likedShayariList');
+            if (currentUser.likedShayari.length === 0) {
+                likedList.innerHTML = '<div class="empty-state">You haven\'t liked any shayari yet. Start exploring!</div>';
+            } else {
+                likedList.innerHTML = currentUser.likedShayari.map(id => {
+                    const shayari = shayariCollection.find(s => s.id === id);
+                    return `
+                        <div class="shayari-item">
+                            <div class="shayari-item-text">${shayari.text}</div>
+                            <div class="shayari-item-theme">${shayari.theme}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Display favorited shayari
+            const favoriteList = document.getElementById('favoriteShayariList');
+            if (currentUser.favoritedShayari.length === 0) {
+                favoriteList.innerHTML = '<div class="empty-state">You haven\'t favorited any shayari yet. Add your favorites!</div>';
+            } else {
+                favoriteList.innerHTML = currentUser.favoritedShayari.map(id => {
+                    const shayari = shayariCollection.find(s => s.id === id);
+                    return `
+                        <div class="shayari-item">
+                            <div class="shayari-item-text">${shayari.text}</div>
+                            <div class="shayari-item-theme">${shayari.theme}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // Admin Panel
+        function displayAdminPanel() {
+            // Calculate stats
+            const totalUsers = users.length;
+            const totalLikes = shayariCollection.reduce((sum, s) => sum + s.likes, 0);
+            const totalFavorites = shayariCollection.reduce((sum, s) => sum + s.favorites, 0);
+
+            document.getElementById('adminTotalUsers').textContent = totalUsers;
+            document.getElementById('adminTotalLikes').textContent = totalLikes;
+            document.getElementById('adminTotalFavorites').textContent = totalFavorites;
+
+            // Most liked shayari
+            const sortedShayari = [...shayariCollection]
+                .sort((a, b) => b.likes - a.likes)
+                .slice(0, 5);
+
+            const mostLikedList = document.getElementById('adminMostLiked');
+            mostLikedList.innerHTML = sortedShayari.map(s => `
+                <li>
+                    <span>${s.text.substring(0, 60)}...</span>
+                    <span><strong>${s.likes}</strong> likes</span>
+                </li>
+            `).join('');
+
+            // User activity
+            const activityList = document.getElementById('adminUserActivity');
+            activityList.innerHTML = users.map(u => `
+                <li>
+                    <div>
+                        <strong>${u.name}</strong> (${u.email})<br>
+                        <span class="user-device">${u.device} • ${u.location}</span>
+                    </div>
+                    <div>
+                        ${u.likedShayari.length} likes • ${u.favoritedShayari.length} favorites
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        // Initialize on load
+        init();
+
+  {      
+   fetch('shayari.txt')
+  .then(response => response.text())
+  .then(text => {
+    const container = document.getElementById('shayariText');
+    container.style.whiteSpace = 'pre-wrap'; // line breaks preserve honge
+    container.textContent = text;
+  })
+  .catch(error => console.error('Error loading shayari:', error));
+}
+    </script>
+</body>
+</html>
